@@ -7,19 +7,18 @@ function App() {
   // replace 'false' with a state variable that can be toggled between true and false
   // this will be used for the Dark Mode Toggle feature
    //const appClass = islight ? "App dark" : "App light"
+  const [lightMode, setLightMode] = useState(true)
   
-  const [isLight, setIsLight] = useState(false) 
-
   function chgMode () {
-    setIsLight(isLight => !isLight) 
-  } 
-
-  const appClass = isLight ? "App dark" : "App light"
+    setLightMode(lightMode => !lightMode)
+  }
+  const mode = lightMode ? "App light" : "App dark"
+  
   return (
-    <div className={appClass}>
+    <div className={mode}>
       <header>
         <h2>Shopster</h2>
-        <button onClick={chgMode}>{isLight ? "App Light" : "App Dark"} </button>
+        <button onClick={chgMode} >{lightMode ? "Dark Mode" : "Light Mode"} </button>
       </header>
       <ShoppingList items={itemData} />
     </div>
@@ -38,3 +37,8 @@ export default App;
 //   </div>
 // );
 // }
+// const [isLight, setIsLight] = useState(false) 
+
+  // function chgMode () {
+  //   setIsLight(isLight => !isLight) 
+  // } 
